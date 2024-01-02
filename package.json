@@ -37,11 +37,11 @@
     "dist"
   ],
   "peerDependencies": {
-    "react": ">=16.0.0"
+    "react": "17.0.2"
   },
   "dependencies": {
     "cnbuilder": "^3.1.0",
-    "react-draggable": "^4.4.5",
+    "react-draggable": "4.4.6",
     "zoom-level": "^2.5.0"
   },
   "devDependencies": {
@@ -54,8 +54,8 @@
     "@semantic-release/github": "^8.0.5",
     "@types/jasmine": "^4.0.3",
     "@types/karma": "^6.3.3",
-    "@types/react": "^17",
-    "@types/react-dom": "^17",
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2",
     "cross-env": "^7.0.3",
     "jasmine-core": "^5.0.0",
     "karma": "^6.4.0",
@@ -65,8 +65,8 @@
     "karma-typescript": "^5.5.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "react": "^17",
-    "react-dom": "^17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "rimraf": "^5.0.0",
     "rollup": "^2.77.0",
     "rollup-plugin-babel": "^4.4.0",
@@ -84,7 +84,8 @@
     "lint:fix": "yarn lint --fix",
     "devserver": "cd ./testbench && npm i && npm run devserver",
     "build": "rimraf ./dist && rollup --config",
-    "test": "cross-env NODE_ENV=production karma start"
+    "test": "cross-env NODE_ENV=production karma start",
+    "preinstall": "yarn --package-lock-only --ignore-scripts"
   },
   "release": {
     "plugins": [
@@ -95,5 +96,9 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
   }
 }

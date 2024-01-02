@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Scrollbar } from '../../src';
+import { Scrollbar } from '../../dist/rsc';
 
 export const PARAGRAPHS_TEXT = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet malesuada efficitur. Praesent semper tortor id egestas volutpat. Aenean dui sapien, fermentum et dictum sagittis, finibus eget velit. Maecenas sed finibus risus, sed hendrerit odio. Nullam volutpat metus non enim consequat auctor. Vivamus gravida nibh in tempus vehicula. Donec venenatis luctus nulla, id facilisis turpis pharetra aliquet. Praesent non orci in turpis dapibus rutrum. Donec venenatis fermentum velit sit amet egestas. Duis quis ipsum et arcu scelerisque sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean suscipit feugiat justo a luctus. Sed placerat sapien sit amet risus efficitur, sed pharetra tellus faucibus.',
@@ -23,9 +23,9 @@ export function getRandomParagraphText() {
 
 export function renderAmountOfParagraphs(
   amount = 5,
-  paragraphsProps: React.HTMLProps<HTMLParagraphElement> = {}
+  paragraphsProps = {}
 ) {
-  const result: Array<JSX.Element> = [];
+  const result = [];
 
   for (; amount--; ) {
     result.push(
@@ -39,10 +39,8 @@ export function renderAmountOfParagraphs(
 }
 
 ReactDom.render(
-  <React.StrictMode>
     <Scrollbar style={{ width: 528, height: 200 }}>
       {renderAmountOfParagraphs(10, { style: { width: '150%' } })}
-    </Scrollbar>
-  </React.StrictMode>,
+    </Scrollbar>,
   document.querySelector('#AppRoot')
 );

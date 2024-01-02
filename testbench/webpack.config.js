@@ -10,7 +10,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   target: 'web',
-  entry: path.join(__dirname, 'app/index.tsx'),
+  entry: path.join(__dirname, 'app/index.js'),
   output: {
     filename: 'bundle.js',
   },
