@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDom from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Scrollbar } from '../../dist/rsc';
 
 export const PARAGRAPHS_TEXT = [
@@ -38,9 +38,10 @@ export function renderAmountOfParagraphs(
   return result;
 }
 
-ReactDom.render(
-    <Scrollbar style={{ width: 528, height: 200 }}>
-      {renderAmountOfParagraphs(10, { style: { width: '150%' } })}
-    </Scrollbar>,
-  document.querySelector('#AppRoot')
+const container = document.getElementById('AppRoot');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(
+  <Scrollbar style={{ width: 528, height: 200 }}>
+    {renderAmountOfParagraphs(10, { style: { width: '150%' } })}
+  </Scrollbar>
 );
